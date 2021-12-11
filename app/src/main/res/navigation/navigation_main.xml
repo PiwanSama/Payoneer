@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation_main">
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/fragmentWelcome">
 
+    <fragment
+        android:id="@+id/fragmentWelcome"
+        android:name="com.sample.payoneer.ui.FragmentWelcome"
+        android:label="FragmentWelcome" >
+        <action
+            android:id="@+id/action_fragmentWelcome_to_fragmentList"
+            app:destination="@id/fragmentList" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentList"
+        android:name="com.sample.payoneer.ui.FragmentList"
+        android:label="FragmentList" />
 </navigation>
