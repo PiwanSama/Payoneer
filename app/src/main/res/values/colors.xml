@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="payoneer_orange_dark">#FD610C</color>
+    <color name="payoneer_orange_light">#FA8C1D</color>
+    <color name="payoneer_green_dark">#48D288</color>
+    <color name="payoneer_green_light">#67C080</color>
+    <color name="color_font">#2A2B2A</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
