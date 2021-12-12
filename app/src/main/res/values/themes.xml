@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Payoneer" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Payoneer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/payoneer_orange_dark</item>
         <item name="colorPrimaryVariant">@color/payoneer_orange_light</item>
@@ -11,7 +11,7 @@
         <item name="colorSecondaryVariant">@color/payoneer_green_light</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/payoneer_orange_dark</item>
         <!-- Customized theme -->
         <item name="fontFamily">@font/poppins_regular</item>
         <item name="color">@color/color_font</item>
