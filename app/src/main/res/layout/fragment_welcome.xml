@@ -6,7 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp">
+        android:padding="24dp"
+        android:background="@color/color_background">
 
         <TextView
             android:id="@+id/txt_title"
@@ -26,28 +27,75 @@
             android:text="@string/txt_subtitle"
             android:textSize="@dimen/txt_subtitle"/>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_navigate_to_payments"
-            android:layout_width="@dimen/btn_width_lg"
-            android:layout_height="@dimen/btn_height_lg"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_navigate_to_payments"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_subtitle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="50dp"
-            android:text="@string/txt_make_payment"
-            android:textAllCaps="false"/>
+            app:cardElevation="2dp"
+            app:cardCornerRadius="4dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_view_payments"
-            android:layout_width="@dimen/btn_width_lg"
-            android:layout_height="@dimen/btn_height_lg"
-            app:layout_constraintTop_toBottomOf="@id/btn_navigate_to_payments"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/icon_pay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/pay"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="16dp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/icon_pay"
+                    android:text="@string/txt_make_payment"/>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_view_payments"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:layout_marginTop="20dp"
-            android:text="@string/txt_view_payments"
-            android:textAllCaps="false"/>
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_navigate_to_payments"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="4dp">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/icon_list"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/list"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="16dp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/icon_list"
+                    android:text="@string/txt_view_payments"/>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

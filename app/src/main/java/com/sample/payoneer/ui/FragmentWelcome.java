@@ -29,7 +29,7 @@ public class FragmentWelcome extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         NavController controller = Navigation.findNavController(view);
-        binding.btnNavigateToPayments.setOnClickListener(view1 -> controller.navigate(R.id.action_fragmentWelcome_to_fragmentList));
-        binding.btnViewPayments.setOnClickListener(view2 -> Toast.makeText(activity, "Coming Soon!", Toast.LENGTH_SHORT).show());
+        binding.cardNavigateToPayments.setOnClickListener(view1 -> controller.navigate(R.id.action_fragmentWelcome_to_fragmentList));
+        binding.cardViewPayments.setOnClickListener(view2 -> Toast.makeText(activity, "Feature Coming Soon!", Toast.LENGTH_SHORT).show());
     }
 }

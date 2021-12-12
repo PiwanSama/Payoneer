@@ -25,6 +25,7 @@ public class PaymentRepository {
 
     public MutableLiveData<ListResult> getData(){
         MutableLiveData<ListResult> listResult = new MutableLiveData<>();
+
         service.getData().enqueue(new Callback<ListResult>() {
             @Override
             public void onResponse(@NonNull Call<ListResult> call, @NonNull Response<ListResult> response) {

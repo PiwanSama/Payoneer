@@ -4,6 +4,7 @@
     <color name="payoneer_orange_light">#FA8C1D</color>
     <color name="payoneer_green_dark">#48D288</color>
     <color name="payoneer_green_light">#67C080</color>
+    <color name="color_background">#F2F3F7</color>
     <color name="color_font">#2A2B2A</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>

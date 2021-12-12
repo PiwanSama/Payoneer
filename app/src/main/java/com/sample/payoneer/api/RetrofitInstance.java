@@ -32,7 +32,7 @@ public class RetrofitInstance {
                 .build();
 
         return new Retrofit.Builder()
-                .baseUrl("https://raw.githubusercontent.com/optile/checkout-android/develop/shared-test/lists")
+                .baseUrl("https://raw.githubusercontent.com/optile/checkout-android/develop/shared-test/lists/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
