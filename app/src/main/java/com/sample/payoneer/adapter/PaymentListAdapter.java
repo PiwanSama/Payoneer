@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.sample.payoneer.R;
 import com.sample.payoneer.databinding.ItemPaymentListBinding;
 import com.sample.payoneer.model.ApplicableNetwork;
+import com.sample.payoneer.util.TextUtils;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -52,6 +54,7 @@ public class PaymentListAdapter extends RecyclerView.Adapter<PaymentListAdapter.
         }
         void bind(ApplicableNetwork item, PaymentListListener listener){
             binding.setItem(item);
+            Picasso.get().load(TextUtils.getUrlString(item.getLinks().get("logo"))).into(binding.imgLogo);
             itemView.setOnClickListener(view->listener.getItemName(item));
         }
     }

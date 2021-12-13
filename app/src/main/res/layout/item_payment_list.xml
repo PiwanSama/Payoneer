@@ -6,37 +6,43 @@
         <variable
             name="item"
             type="com.sample.payoneer.model.ApplicableNetwork" />
+        <import type="com.sample.payoneer.util.TextUtils"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="10dp"
+        android:layout_height="100dp"
+        android:layout_margin="6dp"
         app:contentPadding="8dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        app:cardCornerRadius="4dp">
 
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_logo"
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:src='@{item.links["logo"]}'/>
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/txt_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@id/img_logo"
                 android:layout_marginStart="20dp"
-                android:gravity="center_horizontal"
-                android:text='@{item.label}'/>
+                android:text='@{item.label}'
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_logo"/>
 
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,13 +15,18 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.sample.payoneer.R;
+import com.sample.payoneer.adapter.PaymentListAdapter;
 import com.sample.payoneer.databinding.FragmentPaymentTypeBinding;
+import com.sample.payoneer.model.ApplicableNetwork;
 import com.sample.payoneer.model.ListResult;
 import com.sample.payoneer.viewmodel.PaymentViewModel;
 
-public class FragmentList extends BaseFragment{
+import java.util.List;
+
+public class FragmentList extends BaseFragment {
 
     private FragmentPaymentTypeBinding binding;
 
@@ -39,7 +46,15 @@ public class FragmentList extends BaseFragment{
         PaymentViewModel viewModel = new ViewModelProvider(this).get(PaymentViewModel.class);
 
         viewModel.getData().observe(getViewLifecycleOwner(), listResult -> {
-
+            List<ApplicableNetwork> data = listResult.getNetworks().getApplicable();
+            setUpDataList(data);
         });
+    }
+
+    private void setUpDataList(List<ApplicableNetwork> dataList) {
+        PaymentListAdapter adapter = new PaymentListAdapter(activity, dataList, item -> Toast.makeText(activity, "Pay with "+item.getLabel()+"?", Toast.LENGTH_SHORT).show());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false);
+        binding.rvPaymentList.setAdapter(adapter);
+        binding.rvPaymentList.setLayoutManager(layoutManager);
     }
 }

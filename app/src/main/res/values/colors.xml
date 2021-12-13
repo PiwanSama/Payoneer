@@ -8,4 +8,5 @@
     <color name="color_font">#2A2B2A</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="shimmer_placeholder">#dddddd</color>
 </resources>
