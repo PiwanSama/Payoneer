@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Payoneer</string>
+    <string name="app_name">Payoneer Sample</string>
     <string name="txt_title">Welcome back, John!</string>
     <string name="txt_subtitle">What would you like to do today?</string>
     <string name="txt_make_payment">Make a Payment</string>

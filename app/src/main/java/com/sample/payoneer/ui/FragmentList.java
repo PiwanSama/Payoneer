@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -43,15 +44,23 @@ public class FragmentList extends BaseFragment {
         binding.shimmerView.startShimmer();
 
         NavController controller = Navigation.findNavController(view);
-        binding.navigateBack.setOnClickListener(view1 -> {
-            controller.navigate(R.id.action_fragmentList_to_fragmentWelcome);
-        });
+        binding.navigateBack.setOnClickListener(view1 -> { controller.navigate(R.id.action_fragmentList_to_fragmentWelcome); });
         PaymentViewModel viewModel = new ViewModelProvider(this).get(PaymentViewModel.class);
 
-        viewModel.getData().observe(getViewLifecycleOwner(), listResult -> {
-            List<ApplicableNetwork> data = listResult.getNetworks().getApplicable();
-            setUpDataList(data);
-        });
+        if (isNetworkConnected()){
+            viewModel.getData().observe(getViewLifecycleOwner(), listResult -> {
+                List<ApplicableNetwork> data = listResult.getNetworks().getApplicable();
+                if (data!=null&&data.size()>0){
+                    setUpDataList(data);
+                }else{
+                    showAlert("No data available");
+                }
+            });
+        }else{
+            binding.shimmerView.hideShimmer();
+            showAlert("Data not found");
+           // activity.showSnack("No internet connection");
+        }
     }
 
     private void setUpDataList(List<ApplicableNetwork> dataList) {
@@ -63,5 +72,12 @@ public class FragmentList extends BaseFragment {
         binding.shimmerView.stopShimmer();
         binding.shimmerView.setVisibility(View.GONE);
         binding.rvPaymentList.setVisibility(View.VISIBLE);
+    }
+
+    private void showAlert(String message){
+        new AlertDialog.Builder(activity)
+                .setTitle("Something went wrong")
+                .setMessage(message)
+                .show();
     }
 }

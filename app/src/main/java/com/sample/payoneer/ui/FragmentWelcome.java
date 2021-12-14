@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.sample.payoneer.R;
 import com.sample.payoneer.databinding.FragmentWelcomeBinding;
 
@@ -30,6 +31,6 @@ public class FragmentWelcome extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         NavController controller = Navigation.findNavController(view);
         binding.cardNavigateToPayments.setOnClickListener(view1 -> controller.navigate(R.id.action_fragmentWelcome_to_fragmentList));
-        binding.cardViewPayments.setOnClickListener(view2 -> Toast.makeText(activity, "Feature Coming Soon!", Toast.LENGTH_SHORT).show());
+        binding.cardViewPayments.setOnClickListener(view2 -> activity.showSnack("Feature coming soon!"));
     }
 }
