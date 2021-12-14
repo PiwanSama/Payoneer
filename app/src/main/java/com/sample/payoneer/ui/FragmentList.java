@@ -39,6 +39,9 @@ public class FragmentList extends BaseFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        binding.shimmerView.startShimmer();
+
         NavController controller = Navigation.findNavController(view);
         binding.navigateBack.setOnClickListener(view1 -> {
             controller.navigate(R.id.action_fragmentList_to_fragmentWelcome);
@@ -56,5 +59,9 @@ public class FragmentList extends BaseFragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false);
         binding.rvPaymentList.setAdapter(adapter);
         binding.rvPaymentList.setLayoutManager(layoutManager);
+
+        binding.shimmerView.stopShimmer();
+        binding.shimmerView.setVisibility(View.GONE);
+        binding.rvPaymentList.setVisibility(View.VISIBLE);
     }
 }

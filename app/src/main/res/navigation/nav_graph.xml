@@ -18,6 +18,8 @@
         android:label="Select Payment Type" >
         <action
             android:id="@+id/action_fragmentList_to_fragmentWelcome"
-            app:destination="@id/fragmentWelcome" />
+            app:destination="@id/fragmentWelcome"
+            app:popUpTo="@id/fragmentWelcome"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
